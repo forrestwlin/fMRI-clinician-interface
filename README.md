@@ -2,9 +2,7 @@
 
 ## Overview
 
-The rs-fMRI Clinical Interface is a Dash-based visualization tool for viewing resting-state fMRI network maps overlaid on anatomical MRI scans. The application supports both subject-space and MNI-space visualization, allows interactive adjustment of overlay thresholds and opacity, and provides export functionality for DICOM images and DICOM series.
-
-The viewer was originally designed for clinical and research evaluation of resting-state network maps generated from stroke patient imaging data, but it can be adapted to any dataset that follows the expected directory structure.
+The rs-fMRI Clinical Interface is a Dash-based visualization tool for viewing resting-state fMRI network maps overlaid on anatomical MRI scans. The application supports both subject-space and MNI-space visualization, allows adjustment of overlay thresholds and opacity, and provides export functionality for DICOM images and series.
 
 ---
 
@@ -165,22 +163,6 @@ The current version includes labels for:
 | seedcorr_t1        | Seed Correlation             |
 | desc-brain_mask_t1 | Brain Mask                   |
 
-To add additional network types:
-
-1. Add a display name to:
-
-```python
-SUFFIX_DISPLAY_NAMES
-```
-
-2. Add a color gradient index to:
-
-```python
-SUFFIX_GRADIENT_INDEX
-```
-
-3. Update `get_network_suffix()` if a new naming convention is introduced.
-
 ---
 
 # Running the Application
@@ -244,7 +226,7 @@ Exports every axial slice as a DICOM series and packages the results into a ZIP 
 
 ---
 
-# Common Setup Issues
+# Common Issues
 
 ## No Patients Appear
 
@@ -299,16 +281,3 @@ find_t1_file()
 to match your naming convention.
 
 ---
-
-# Customization
-
-For new datasets, the most commonly modified sections are:
-
-```python
-BASE_DIR
-SUFFIX_DISPLAY_NAMES
-SUFFIX_GRADIENT_INDEX
-get_network_suffix()
-```
-
-These determine where files are located, how overlays are labeled, and how they are displayed within the viewer.
